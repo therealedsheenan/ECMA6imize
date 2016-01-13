@@ -1,24 +1,32 @@
 {
-  "name": "es6_sample",
+  "name": "ecma6simize",
   "version": "1.0.0",
-  "description": "sample repository for javascript es6 functionalities",
+  "description": "Sheenan Tenepre's task runner using gulp with es6 javascript",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/therealedsheenan/es6_sample.git"
+    "url": "git+https://github.com/therealedsheenan/ECMA6simize.git"
   },
   "keywords": [
-    "es6"
+    "es6",
+    "gulp + babel",
+    "edify",
+    "gulp + babel in a modular way",
+    "gulp modular",
+    "babel modular",
+    "gulp babel",
+    "babel gulpfile",
+    "gulp.babel.js"
   ],
   "author": "Sheenan Tenepre",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/therealedsheenan/es6_sample/issues"
+    "url": "https://github.com/therealedsheenan/ECMA6simize/issues"
   },
-  "homepage": "https://github.com/therealedsheenan/es6_sample#readme",
+  "homepage": "https://github.com/therealedsheenan/ECMA6simize#readme",
   "devDependencies": {
     "autoprefixer": "^6.2.3",
     "babel-core": "^6.4.0",
