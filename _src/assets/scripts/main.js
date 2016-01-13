@@ -21,10 +21,10 @@ let main = ( var1 ) => {
     }
 }
 
-let first = main("welcome");
-let second = main("bye");
+let first = main("welcome11aa");
+let second = main("byezz");
 
 // console.log(first);
-console.log(first("firstguy"));
-console.log(second("firstguy"));
+console.log(first("SHEENAN"));
+console.log(second("TENEPRE"));
 // console.log(second("secondguy"));
