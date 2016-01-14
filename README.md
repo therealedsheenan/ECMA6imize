@@ -20,3 +20,6 @@ gulp
 ```
 gulp production
 ```
+
+###Contribution
+Any help from anybody will be much appreciated. The main objective here is to create a task runner based on es6 technology. If you have any ideas to contribute please feel free to fork/pull request.
