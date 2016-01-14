@@ -1,4 +1,8 @@
-"use strict"
+import var1, { subtract } from "./partials/partial1"
+
+console.log(var1)
+
+console.log(subtract(1,2))
 
 class Project {
     constructor( name ) {
@@ -24,7 +28,5 @@ let main = ( var1 ) => {
 let first = main("welcome11aa");
 let second = main("byezz");
 
-// console.log(first);
-console.log(first("SHEENAN"));
-console.log(second("TENEPRE"));
-// console.log(second("secondguy"));
+console.log(first("S"));
+console.log(second("TENEPRsE"));
