@@ -1,5 +1,5 @@
 {
-  "name": "ecma6simize",
+  "name": "ECMA6imize",
   "version": "1.0.0",
   "description": "Sheenan Tenepre's task runner using gulp with es6 javascript",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/therealedsheenan/ECMA6simize.git"
+    "url": "git+https://github.com/therealedsheenan/ECMA6imize.git"
   },
   "keywords": [
     "es6",
@@ -24,9 +24,9 @@
   "author": "Sheenan Tenepre",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/therealedsheenan/ECMA6simize/issues"
+    "url": "https://github.com/therealedsheenan/ECMA6imize/issues"
   },
-  "homepage": "https://github.com/therealedsheenan/ECMA6simize#readme",
+  "homepage": "https://github.com/therealedsheenan/ECMA6imize#readme",
   "devDependencies": {
     "autoprefixer": "^6.2.3",
     "babel-core": "^6.4.0",
