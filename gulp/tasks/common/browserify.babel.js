@@ -14,7 +14,6 @@ let bundleAll = () => {
     let bundler = watchify(browserify(config.browserify.src, { debug: true }).transform(babel));
     let rebundle = () => {
         bundler
-
             .bundle()
             .on('error', handleErrors)
             .pipe(source('main.js'))
