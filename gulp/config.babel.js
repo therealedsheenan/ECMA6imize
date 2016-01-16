@@ -67,7 +67,31 @@ module.exports = {
     browserify: {
         dest: SCRIPTS_DEST,
         src: `${SCRIPTS_SRC}/main.js`,
-        extensions: ['.js'],
-        outputName: 'main.js'
+        // extensions: ['.js'],
+        // outputName: 'main.js'
+        bundleConfigs: [
+            paths: [
+                //add first path
+            ],
+            entries: [
+                //add dependencies
+            ],
+            dest: '',
+            outputName: 'head.js',
+            require: ['config','libs/modernzr'],
+            extensions: ['.js']
+        ],
+        [
+            paths: [
+                //add second path
+            ],
+            entries: [
+                //add main entries
+            ],
+            dest: '',
+            outputName: 'main.js',
+            require: ['jquery'],
+            extensions: ['.js']
+        ]
     }
 }
