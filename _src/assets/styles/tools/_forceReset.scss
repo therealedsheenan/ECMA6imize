@@ -1,0 +1,101 @@
+/* forcing elements */
+
+//margins
+.no-margin__trbl {
+    margin: 0 !important;
+}
+
+@mixin no-margin__trbl {
+    margin: 0 !important;
+}
+
+.no-margin__top {
+    margin-top: 0 !important;
+}
+
+@mixin no-margin__top {
+    margin-top: 0 !important;
+}
+
+.no-margn__right {
+    margin-right: !important;
+}
+
+@mixin no-margn__right {
+    margin-right: !important;
+}
+
+.no-margn__bottom {
+    margin-bottom: !important;
+}
+
+@mixin no-margn__bottom {
+    margin-bottom: !important;
+}
+
+.no-margn__left {
+    margin-left: !important;
+}
+
+@mixin no-margn__left {
+    margin-left: !important;
+}
+
+//padding
+.no-padding__trbl {
+    padding: 0 !important;
+}
+
+@mixin no-padding__trbl {
+    padding: 0 !important;
+}
+
+.no-padding__right {
+    padding-right: 0 !important;
+}
+
+@mixin no-padding__right {
+    padding-right: 0 !important;
+}
+
+.no-padding__bottom {
+    padding-bottom: 0 !important;
+}
+
+@mixin no-padding__bottom {
+    padding-bottom: 0 !important;
+}
+
+.no-padding__left {
+    padding-left: 0 !important;
+}
+
+@mixin no-padding__left {
+    padding-left: 0 !important;
+}
+
+//text-align
+
+.text-align__left {
+    text-align: left !important;
+}
+
+@mixin text-align__left {
+    text-align: left !important;
+}
+
+.text-align__right {
+    text-align: right !important;
+}
+
+@mixin text-align__right {
+    text-align: right !important;
+}
+
+.text-align__center {
+    text-align: center !important;
+}
+
+@mixin text-align__center {
+    text-align: center !important;
+}
