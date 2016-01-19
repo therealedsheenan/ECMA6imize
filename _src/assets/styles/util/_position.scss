@@ -1,0 +1,35 @@
+//set positions for absolute, relative and fixed
+@mixin absolute ( $t: auto, $r: auto, $b: auto, $l: auto ) {
+    @include position( $t, $r, $b, $l, $pos: absolute );
+}
+
+@mixin relative ( $t: auto, $r: auto, $b: auto, $l: auto ) {
+    @include position( $t, $r, $b, $l, $pos: relative );
+}
+
+@mixin fixed ( $t: auto, $r: auto, $b: auto, $l: auto ) {
+    @include position( $t, $r, $b, $l, $pos: fixed );
+}
+
+//main function
+@mixin position ( $t: auto, $r: auto, $b: auto, $l: auto, $pos: auto ) {
+    @if ( $pos != auto ) {
+        position: $pos;
+    }
+
+    @if ( $t != auto ) {
+        top: $t;
+    }
+
+    @if ( $r != auto ) {
+        right: $r;
+    }
+
+    @if ( $b != auto ) {
+        bottom: $b;
+    }
+
+    @if ( $l != auto ) {
+        left: $l;
+    }
+}

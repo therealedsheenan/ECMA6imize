@@ -71,10 +71,10 @@ module.exports = {
         // outputName: 'main.js'
         bundleConfigs: [
             paths: [
-                //add first path
+                path1: "path1"
             ],
             entries: [
-                //add dependencies
+                entry1: "entry1"
             ],
             dest: '',
             outputName: 'head.js',
@@ -83,10 +83,10 @@ module.exports = {
         ],
         [
             paths: [
-                //add second path
+                path1: "path2"
             ],
             entries: [
-                //add main entries
+                entry1: "entry2"
             ],
             dest: '',
             outputName: 'main.js',
