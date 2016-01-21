@@ -93,5 +93,9 @@ module.exports = {
             require: ['jquery'],
             extensions: ['.js']
         ]
+    },
+
+    del: {
+        dest: DEST_DIR
     }
 }
