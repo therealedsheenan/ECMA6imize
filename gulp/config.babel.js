@@ -65,34 +65,24 @@ module.exports = {
     },
 
     browserify: {
-        dest: SCRIPTS_DEST,
-        src: `${SCRIPTS_SRC}/main.js`,
+        // dest: SCRIPTS_DEST,
+        // src: `${SCRIPTS_SRC}/main.js`,
         // extensions: ['.js'],
         // outputName: 'main.js'
-        bundleConfigs: [
-            paths: [
-                path1: "path1"
-            ],
-            entries: [
-                entry1: "entry1"
-            ],
-            dest: '',
-            outputName: 'head.js',
-            require: ['config','libs/modernzr'],
-            extensions: ['.js']
-        ],
-        [
-            paths: [
-                path1: "path2"
-            ],
-            entries: [
-                entry1: "entry2"
-            ],
-            dest: '',
+        bundleConfigs: [{
+            entries: `${ SCRIPTS_SRC }/main.js`,
+            dest: `${ SCRIPTS_DEST }/`,
             outputName: 'main.js',
-            require: ['jquery'],
+            // require: ['config','libs/modernzr'],
             extensions: ['.js']
-        ]
+        },
+        {
+            entries: `${ SCRIPTS_SRC }/head.js`,
+            dest: `${ SCRIPTS_DEST }/`,
+            outputName: 'head.js',
+            // require: ['jquery'],
+            extensions: ['.js']
+        }]
     },
 
     del: {
