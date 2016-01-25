@@ -18,13 +18,18 @@ module.exports = {
         dest: DEST_DIR
     },
 
+    build: {
+        dev: 'development',
+        prod: 'production'
+    },
+
     browserSync: {
         server: {
             baseDir: DEST_DIR
         },
         startPath: '',
         port: 3000,
-        browser: "google chrome",
+        browser: "FirefoxDeveloperEdition",
         ghostMode: {
             clicks: false,
             scroll: false,
@@ -65,24 +70,23 @@ module.exports = {
     },
 
     browserify: {
-        // dest: SCRIPTS_DEST,
-        // src: `${SCRIPTS_SRC}/main.js`,
-        // extensions: ['.js'],
-        // outputName: 'main.js'
-        bundleConfigs: [{
-            entries: `${ SCRIPTS_SRC }/main.js`,
-            dest: `${ SCRIPTS_DEST }/`,
-            outputName: 'main.js',
-            // require: ['config','libs/modernzr'],
-            extensions: ['.js']
-        },
-        {
-            entries: `${ SCRIPTS_SRC }/head.js`,
-            dest: `${ SCRIPTS_DEST }/`,
-            outputName: 'head.js',
-            // require: ['jquery'],
-            extensions: ['.js']
-        }]
+        transform: ['babelify'],
+        bundleConfigs: [
+            {
+                entries: [`${ SCRIPTS_SRC }/main.babel.js`],
+                dest: `${ SCRIPTS_DEST }/`,
+                outputName: 'main.js',
+                // require: ['config','libs/modernzr'],
+                extensions: ['.js']
+            },
+            {
+                entries: [`${ SCRIPTS_SRC }/head.babel.js`],
+                dest: `${ SCRIPTS_DEST }/`,
+                outputName: 'head.js',
+                // require: ['jquery'],
+                extensions: ['.js']
+            }
+        ]
     },
 
     del: {

@@ -1,6 +1,13 @@
-import config from '../../config.babel.js'
-
 import gulp from 'gulp'
-import browserSync from 'browser-sync'
+import rs from 'run-sequence'
 
-gulp.task('default', ['html', 'styles', 'browserify', 'browserSync', 'watch'] );
+let runDefault = ( cb ) => {
+    rs(
+        'clean',
+        ['html', 'styles', 'watchify'],
+        ['browserSync', 'watch'],
+        cb
+    )
+}
+
+gulp.task('default', runDefault )

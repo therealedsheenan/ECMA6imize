@@ -1,4 +1,4 @@
-import var1, { subtract } from "./partials/partial1"
+import var1, { subtract } from "./partials/partial1.babel"
 
 console.log(var1)
 

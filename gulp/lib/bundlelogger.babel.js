@@ -3,12 +3,16 @@ import prettyHrtime from 'pretty-hrtime'
 let startTime
 
 module.exports = {
-    start: function( filepath ) {
+    start: ( filepath ) => {
         startTime = process.hrtime();
         gutil.log('Bundling', gutil.colors.green(filepath));
     },
 
-    end: function( filepath ) {
+    watch: ( bundleName ) => {
+        gutil.log('Watching files: ', gutil.colors.yellow(bundleName))
+    },
+
+    end: ( filepath ) => {
         var taskTime = process.hrtime( startTime );
         var prettyTime = prettyHrtime( taskTime );
         gutil.log('Bundled', gutil.colors.green( filepath ), 'in', gutil.colors.magenta( prettyTime ));
