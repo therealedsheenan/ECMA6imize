@@ -45,10 +45,11 @@ let generateStyles = () => {
     }
 
     return sass(styleFile, options)
+        .pipe(plumber())
+        .on('error', handleErrors)
         .pipe(postcss(cssTools))
         .pipe(sourcemaps.write())
         .pipe(gulpif( !config.isProduction, sourcemaps.write() ))
-        .on('error', handleErrors)
         .pipe(rename( renameFile ))
         .pipe(gulp.dest(config.styles.dest))
         // .pipe(browserSync.reload( { stream: true, once: true } ))
