@@ -4,7 +4,7 @@ import rs from 'run-sequence'
 let runDefault = ( cb ) => {
     rs(
         'clean',
-        ['html', 'styles', 'watchify'],
+        ['copy:imagemin', 'html', 'styles', 'watchify'],
         ['browserSync', 'watch'],
         cb
     )

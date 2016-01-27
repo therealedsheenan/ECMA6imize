@@ -35,7 +35,7 @@ let bundleAll = ( dev ) => {
                 .pipe(source( bundleConfig.outputName ))
                 .pipe(gulpif(!dev ,buffer()))
                 .pipe(gulp.dest(bundleConfig.dest))
-                .pipe(browserSync.reload( { stream: true, once: true } ))
+                .pipe(browserSync.reload( config.browserSync.reload ))
         }
 
         if ( dev ) {

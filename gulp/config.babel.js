@@ -8,6 +8,8 @@ const SCRIPTS_SRC = `${ SRC_DIR }/assets/scripts`;
 const SCRIPTS_DEST = `${ DEST_DIR }/assets/scripts`;
 const HTML_SRC = `${ SRC_DIR }/html`;
 const HTML_DEST = `${ DEST_DIR }`;
+const MEDIA_SRC = `${ SRC_DIR }/assets/media`;
+const MEDIA_DEST = `${ DEST_DIR }/assets/media`;
 
 let production = false;
 
@@ -35,7 +37,12 @@ module.exports = {
             scroll: false,
             links: false,
             forms: false
+        },
+        reload: {
+            stream: true,
+            once: true
         }
+
     },
 
     styles: {
@@ -87,6 +94,26 @@ module.exports = {
                 extensions: ['.js']
             }
         ]
+    },
+
+    copyImg: {
+        src: [
+            `${ MEDIA_SRC }/images/*.{gif,jpeg,jpg,png,svg,webp}`
+        ],
+        dest: `${ MEDIA_DEST }/images`,
+        watch: [
+            `${ MEDIA_SRC }/images/*.{gif,jpeg,jpg,png,svg,webp}`
+        ],
+        svgoPlugins: [
+            { removeViewBox: false },
+            { removeUselessStrokeAndFill: false },
+            { cleanupIDs: false },
+            { removeHiddenElems: false }
+        ],
+        pngquant: {
+            quality: '60-80',
+            speed: 4
+        }
     },
 
     del: {
