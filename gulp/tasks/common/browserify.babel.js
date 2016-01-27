@@ -34,15 +34,15 @@ let bundleAll = ( dev ) => {
                 .bundle()
                 .on('error', handleErrors)
                 .pipe(source( bundleConfig.outputName ))
-                .pipe(gulpif(!dev ,buffer()))
-                .pipe(dest(bundleConfig.dest))
+                .pipe(gulpif(!dev , buffer()))
+                .pipe(dest( bundleConfig.dest ))
                 .pipe(browserSync.reload( config.browserSync.reload ))
         }
 
         if ( dev ) {
             pkg = watchify( pkg )
             pkg.on('update', ( e ) => {
-                e.forEach( (v) => {
+                e.forEach( ( v ) => {
                     changeFileLog(v, 'changed')
                 } )
                 bundle();
@@ -54,7 +54,7 @@ let bundleAll = ( dev ) => {
         return bundle()
     }
 
-    return ms.apply( gulp, _.map(config.browserify.bundleConfigs, bundleThis ))
+    return ms.apply( gulp, _.map(config.browserify.bundleConfigs, bundleThis))
 }
 
 gulp.task('browserify', () => {

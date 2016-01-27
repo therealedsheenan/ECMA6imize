@@ -1,5 +1,6 @@
 import config from '../../config.babel'
 import handleErrors from '../../lib/handleErrors.babel'
+import env from '../../lib/env.babel'
 
 import gulp from 'gulp'
 import sourcemaps from 'gulp-sourcemaps'
@@ -18,7 +19,7 @@ import browserSync from 'browser-sync'
 import plumber from 'gulp-plumber'
 
 const dest = gulp.dest
-
+const dev = env !== config.build.prod
 const cssTools = [
     atImport,
     simpleVars,
@@ -36,7 +37,7 @@ let generateStyles = () => {
         defaultEncoding: 'UTF-8'
     }
 
-    if ( config.isProduction )  {
+    if ( !dev )  {
         styleFile = config.styles.production
     } else {
         options.sourcemap = true
@@ -49,13 +50,13 @@ let generateStyles = () => {
     return sass(styleFile, options)
         .pipe(plumber())
         .on('error', handleErrors)
-        .pipe(postcss(cssTools))
+        .pipe(postcss( cssTools ))
         .pipe(sourcemaps.write())
-        .pipe(gulpif( !config.isProduction, sourcemaps.write() ))
+        .pipe(gulpif(!dev, sourcemaps.write()))
         .pipe(rename( renameFile ))
-        .pipe(dest(config.styles.dest))
+        .pipe(dest( config.styles.dest ))
         // .pipe(browserSync.reload( { stream: true, once: true } ))
-        .pipe(gulpif( !config.isProduction, browserSync.reload( { stream: true, once: true } ) ))
+        .pipe(gulpif(!dev, browserSync.reload( config.browserSync.reload )))
 }
 
 gulp.task('styles', generateStyles)

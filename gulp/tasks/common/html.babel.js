@@ -13,8 +13,8 @@ let template = () => {
     gulp.src( config.html.src )
         .pipe(plumber())
         .on('error', handleErrors)
-        .pipe(jade({ pretty: true }))
-        .pipe(dest(config.html.dest))
+        .pipe(jade( config.html.options ))
+        .pipe(dest( config.html.dest ))
         .pipe(browserSync.reload( config.browserSync.reload ))
 }
 

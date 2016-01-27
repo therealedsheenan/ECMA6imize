@@ -73,7 +73,8 @@ module.exports = {
             `${ HTML_SRC }/**/*.jade`,
             `${ HTML_SRC }/**/*.yml`,
             `${ HTML_SRC }/**/*.json`
-        ]
+        ],
+        options: { pretty: true }
     },
 
     browserify: {

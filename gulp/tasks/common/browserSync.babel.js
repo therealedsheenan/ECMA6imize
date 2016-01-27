@@ -7,4 +7,4 @@ let browserLoad = () => {
     browserSync( config.browserSync )
 }
 
-gulp.task('browserSync', browserLoad )
+gulp.task('browserSync', browserLoad)

@@ -8,11 +8,12 @@ import browserSync from 'browser-sync'
 import imagemin from 'gulp-imagemin'
 import pngquant from 'imagemin-pngquant'
 
+const dev = env !== config.build.prod
 const dest = gulp.dest
 
 let copyImagemin = () => {
-    gulp.src(config.copyImg.src)
-        .pipe(changed(config.copyImg.dest))
+    gulp.src( config.copyImg.src )
+        .pipe(changed( config.copyImg.dest ))
         .pipe(imagemin({
             progressive: true,
             interlaced: true,
@@ -21,8 +22,8 @@ let copyImagemin = () => {
                 pngquant( config.copyImg.pngquant )
             ]
         }))
-        .pipe(dest(config.copyImg.dest))
-        .pipe(gulpif(env !== config.build.prod, browserSync.reload( config.browserSync.reload )))
+        .pipe(dest( config.copyImg.dest ))
+        .pipe(gulpif(!dev, browserSync.reload( config.browserSync.reload )))
 }
 
 gulp.task('copy-imagemin', copyImagemin)

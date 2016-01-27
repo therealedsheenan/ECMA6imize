@@ -9,8 +9,8 @@ const dest = gulp.dest
 
 let copyFonts = () => {
     gulp.src( config.copyFonts.src )
-        .pipe( changed( config.copyFonts.dest ) )
-        .pipe( dest( config.copyFonts.dest ) )
+        .pipe(changed( config.copyFonts.dest ))
+        .pipe(dest( config.copyFonts.dest ))
 }
 
 gulp.task('copy-fonts', copyFonts)
