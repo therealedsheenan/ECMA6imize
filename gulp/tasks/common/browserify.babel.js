@@ -18,6 +18,7 @@ import ms from 'merge-stream'
 import _ from 'lodash'
 
 const dev = env !== config.build.prod
+const dest = gulp.dest
 
 let bundleAll = ( dev ) => {
     let bundleThis = ( bundleConfig ) => {
@@ -34,7 +35,7 @@ let bundleAll = ( dev ) => {
                 .on('error', handleErrors)
                 .pipe(source( bundleConfig.outputName ))
                 .pipe(gulpif(!dev ,buffer()))
-                .pipe(gulp.dest(bundleConfig.dest))
+                .pipe(dest(bundleConfig.dest))
                 .pipe(browserSync.reload( config.browserSync.reload ))
         }
 

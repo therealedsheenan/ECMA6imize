@@ -4,10 +4,10 @@ import rs from 'run-sequence'
 let runDefault = ( cb ) => {
     rs(
         'clean',
-        ['copy:imagemin', 'html', 'styles', 'watchify'],
+        ['copy-imagemin', 'copy-fonts', 'html', 'styles', 'watchify'],
         ['browserSync', 'watch'],
         cb
     )
 }
 
-gulp.task('default', runDefault )
+gulp.task('development', runDefault )

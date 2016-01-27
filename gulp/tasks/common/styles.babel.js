@@ -17,6 +17,8 @@ import gulpif from 'gulp-if'
 import browserSync from 'browser-sync'
 import plumber from 'gulp-plumber'
 
+const dest = gulp.dest
+
 const cssTools = [
     atImport,
     simpleVars,
@@ -51,7 +53,7 @@ let generateStyles = () => {
         .pipe(sourcemaps.write())
         .pipe(gulpif( !config.isProduction, sourcemaps.write() ))
         .pipe(rename( renameFile ))
-        .pipe(gulp.dest(config.styles.dest))
+        .pipe(dest(config.styles.dest))
         // .pipe(browserSync.reload( { stream: true, once: true } ))
         .pipe(gulpif( !config.isProduction, browserSync.reload( { stream: true, once: true } ) ))
 }

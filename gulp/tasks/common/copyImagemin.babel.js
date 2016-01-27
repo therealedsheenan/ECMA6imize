@@ -8,6 +8,8 @@ import browserSync from 'browser-sync'
 import imagemin from 'gulp-imagemin'
 import pngquant from 'imagemin-pngquant'
 
+const dest = gulp.dest
+
 let copyImagemin = () => {
     gulp.src(config.copyImg.src)
         .pipe(changed(config.copyImg.dest))
@@ -19,8 +21,8 @@ let copyImagemin = () => {
                 pngquant( config.copyImg.pngquant )
             ]
         }))
-        .pipe(gulp.dest(config.copyImg.dest))
+        .pipe(dest(config.copyImg.dest))
         .pipe(gulpif(env !== config.build.prod, browserSync.reload( config.browserSync.reload )))
 }
 
-gulp.task('copy:imagemin', copyImagemin)
+gulp.task('copy-imagemin', copyImagemin)

@@ -98,7 +98,8 @@ module.exports = {
 
     copyImg: {
         src: [
-            `${ MEDIA_SRC }/images/*.{gif,jpeg,jpg,png,svg,webp}`
+            `${ MEDIA_SRC }/images/**/*.{gif,jpeg,jpg,png,svg,webp}`,
+            `${ MEDIA_SRC }/images/icons/*.{ico,png,svg}`
         ],
         dest: `${ MEDIA_DEST }/images`,
         watch: [
@@ -114,6 +115,11 @@ module.exports = {
             quality: '60-80',
             speed: 4
         }
+    },
+
+    copyFonts: {
+        src: [ `${ MEDIA_SRC }/fonts/*.{eot,ttf,otf,cff,afm,lwfn,ffil,fon,pfm,pfb,woff,svg,std,pro,xsf}` ],
+        dest: `${ MEDIA_DEST }/fonts`
     },
 
     del: {
