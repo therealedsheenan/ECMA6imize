@@ -10,4 +10,4 @@ let runDefault = ( cb ) => {
     )
 }
 
-gulp.task('development', runDefault )
+gulp.task('development', runDefault)
