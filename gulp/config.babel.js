@@ -31,7 +31,7 @@ module.exports = {
         },
         startPath: '',
         port: 3000,
-        browser: "FirefoxDeveloperEdition",
+        browser: "google chrome",
         ghostMode: {
             clicks: false,
             scroll: false,
