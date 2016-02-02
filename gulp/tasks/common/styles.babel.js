@@ -52,11 +52,11 @@ let generateStyles = () => {
         .on('error', handleErrors)
         .pipe(postcss( cssTools ))
         .pipe(sourcemaps.write())
-        .pipe(gulpif(!dev, sourcemaps.write()))
+        .pipe(gulpif(dev, sourcemaps.write()))
         .pipe(rename( renameFile ))
         .pipe(dest( config.styles.dest ))
         // .pipe(browserSync.reload( { stream: true, once: true } ))
-        .pipe(gulpif(!dev, browserSync.reload( config.browserSync.reload )))
+        .pipe(gulpif(dev, browserSync.reload( config.browserSync.reload )))
 }
 
 gulp.task('styles', generateStyles)
