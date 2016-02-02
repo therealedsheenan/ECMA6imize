@@ -1,9 +1,20 @@
-import config from '../../config.babel.js'
+import config from '../../config.babel'
+import changeFileLog from '../../lib/changeFileLog.babel'
 
 import gulp from 'gulp';
 
+let watchData = ['styles' ,'html' ,'copyImg' ,'copyFonts'];
+
 gulp.task('watch', () => {
-    gulp.watch(config.browserify.src , ['browserify'] )
-    gulp.watch(config.html.src, ['html'])
-    gulp.watch(config.styles.watchFiles, ['styles'])
+    let watchFiles = [];
+    watchData.forEach( ( k,v ) => {
+        let tasks = [watchData[v]];
+        let files = config[k].watchFiles || config[k].src;
+        watchFiles = watchFiles.concat( files );
+        gulp.watch (files, tasks);
+    });
+
+    gulp.watch( watchFiles ).on("change", ( evt ) => {
+        changeFileLog(evt.path, evt.type)
+    });
 });
