@@ -5,7 +5,6 @@ import gulp from 'gulp'
 import jade from 'gulp-jade'
 import browserSync from 'browser-sync'
 import plumber from 'gulp-plumber'
-import data from 'gulp-data'
 import path from 'path'
 
 const dest = gulp.dest
