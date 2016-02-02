@@ -5,15 +5,24 @@ import gulp from 'gulp'
 import jade from 'gulp-jade'
 import browserSync from 'browser-sync'
 import plumber from 'gulp-plumber'
+import data from 'gulp-data'
+import path from 'path'
 
 const dest = gulp.dest
 
 //main template generator
 let template = () => {
     gulp.src( config.html.src )
+
         .pipe(plumber())
         .on('error', handleErrors)
-        .pipe(jade( config.html.options ))
+        .pipe(jade( {
+            basedir: '_src',
+            pretty: true,
+            data: {
+                site: require(path.resolve( config.html.data ))
+            }
+        }))
         .pipe(dest( config.html.dest ))
         .pipe(browserSync.reload( config.browserSync.reload ))
 }

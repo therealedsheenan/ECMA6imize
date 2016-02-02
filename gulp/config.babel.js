@@ -64,17 +64,20 @@ module.exports = {
     html: {
         src: [
             `${ HTML_SRC }/**/*.jade`,
-            `!${ HTML_SRC }/base/**/*.jade`,
+            `!${ HTML_SRC }/__construct/**/*.jade`,
             `!${ HTML_SRC }/**/_*.jade`,
         ],
         dest: HTML_DEST,
-        data: `${ HTML_DEST }/`,
+        data: `${ HTML_SRC }/__construct/data/info.json`,
         watchFiles: [
+            `${ HTML_SRC }/**/**/*.jade`,
             `${ HTML_SRC }/**/*.jade`,
             `${ HTML_SRC }/**/*.yml`,
             `${ HTML_SRC }/**/*.json`
         ],
-        options: { pretty: true }
+        options: {
+            pretty: true
+        }
     },
 
     browserify: {
@@ -103,9 +106,7 @@ module.exports = {
             `${ MEDIA_SRC }/images/icons/*.{ico,png,svg}`
         ],
         dest: `${ MEDIA_DEST }/images`,
-        watch: [
-            `${ MEDIA_SRC }/images/*.{gif,jpeg,jpg,png,svg,webp}`
-        ],
+        watch: [ `${ MEDIA_SRC }/images/*.{gif,jpeg,jpg,png,svg,webp}` ],
         svgoPlugins: [
             { removeViewBox: false },
             { removeUselessStrokeAndFill: false },
@@ -115,12 +116,16 @@ module.exports = {
         pngquant: {
             quality: '60-80',
             speed: 4
-        }
+        },
+        watchFiles: [
+            `${ MEDIA_SRC }/images/**/*.{gif,jpeg,jpg,png,svg,webp}`
+        ]
     },
 
     copyFonts: {
         src: [ `${ MEDIA_SRC }/fonts/*.{eot,ttf,otf,cff,afm,lwfn,ffil,fon,pfm,pfb,woff,svg,std,pro,xsf}` ],
-        dest: `${ MEDIA_DEST }/fonts`
+        dest: `${ MEDIA_DEST }/fonts`,
+        watchFiles: [ `${ MEDIA_SRC }/fonts/*.{eot,ttf,otf,cff,afm,lwfn,ffil,fon,pfm,pfb,woff,svg,std,pro,xsf}` ]
     },
 
     del: {
