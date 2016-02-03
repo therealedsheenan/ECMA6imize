@@ -42,7 +42,6 @@ module.exports = {
             stream: true,
             once: true
         }
-
     },
 
     styles: {
@@ -58,7 +57,19 @@ module.exports = {
             `${ CSS_SRC }/**/*.scss`,
             `${ CSS_SRC }/**/**/*.scss`
         ],
-        autoprefixer: 'last 2 versions'
+        autoprefixer: 'last 2 versions',
+        reporter: {
+            clearMessages: true,
+            throwError: true
+        },
+        doiuse: {
+            browsers: [
+                'ie >= 11'
+                // 'last 2 versions'
+            ],
+            ignore: ['rem'],
+            ignoreFiles: ['']
+        }
     },
 
     html: {

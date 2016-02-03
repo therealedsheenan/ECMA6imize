@@ -9,24 +9,36 @@ import autoprefixer from 'autoprefixer'
 import cssnext from 'postcss-cssnext'
 import nested from 'postcss-nested'
 import atImport from 'postcss-import'
+import reporter from 'postcss-reporter'
 import mqpacker from 'css-mqpacker'
 import minify from 'cssnano'
 import simpleVars from 'postcss-simple-vars'
+import doiuse from 'doiuse'
 import rename from 'gulp-rename'
-import sass from 'gulp-ruby-sass'
+import rsass from 'gulp-ruby-sass'
 import gulpif from 'gulp-if'
 import browserSync from 'browser-sync'
 import plumber from 'gulp-plumber'
 
 const dest = gulp.dest
 const dev = env !== config.build.prod
-const cssTools = [
-    atImport,
+const postprocess = [
+    reporter( config.styles.reporter ),
     simpleVars,
     cssnext,
     nested,
     autoprefixer( config.styles.autoprefixer ),
-    mqpacker
+    mqpacker,
+    doiuse({
+        browsers: config.styles.browsers,
+        ignore: config.styles.ignore,
+        ignoreFiles: config.styles.ignoreFiles,
+        onFeatureUsage: function ( info ) {
+            console.log( info.message )
+        }
+    }),
+    atImport,
+    minify
 ]
 
 let generateStyles = () => {
@@ -47,16 +59,14 @@ let generateStyles = () => {
         path.basename = config.styles.destFileName
     }
 
-    return sass(styleFile, options)
-        .pipe(plumber())
-        .on('error', handleErrors)
-        .pipe(postcss( cssTools ))
-        .pipe(sourcemaps.write())
-        .pipe(gulpif(dev, sourcemaps.write()))
+    return rsass( styleFile, options )
+        .pipe( plumber() )
+        .on( 'error', handleErrors )
+        .pipe(postcss( postprocess ))
+        .pipe(gulpif( dev, sourcemaps.write() ))
         .pipe(rename( renameFile ))
         .pipe(dest( config.styles.dest ))
-        // .pipe(browserSync.reload( { stream: true, once: true } ))
-        .pipe(gulpif(dev, browserSync.reload( config.browserSync.reload )))
+        .pipe(gulpif( dev, browserSync.reload( config.browserSync.reload ) ))
 }
 
 gulp.task('styles', generateStyles)
