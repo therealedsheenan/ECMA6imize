@@ -2,10 +2,10 @@ import gutil from 'gulp-util'
 import prettyHrtime from 'pretty-hrtime'
 let startTime
 
-module.exports = {
+let bundleLogger = {
     start: ( filepath ) => {
         startTime = process.hrtime();
-        gutil.log('Bundling', gutil.colors.green(filepath));
+        gutil.log('Bundling', gutil.colors.green(filepath))
     },
 
     watch: ( bundleName ) => {
@@ -13,8 +13,10 @@ module.exports = {
     },
 
     end: ( filepath ) => {
-        var taskTime = process.hrtime( startTime );
-        var prettyTime = prettyHrtime( taskTime );
-        gutil.log('Bundled', gutil.colors.green( filepath ), 'in', gutil.colors.magenta( prettyTime ));
+        var taskTime = process.hrtime( startTime )
+        var prettyTime = prettyHrtime( taskTime )
+        gutil.log('Bundled', gutil.colors.green( filepath ), 'in', gutil.colors.magenta( prettyTime ))
     }
-};
+}
+
+export default bundleLogger
