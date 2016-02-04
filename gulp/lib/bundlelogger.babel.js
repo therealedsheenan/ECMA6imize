@@ -4,7 +4,7 @@ let startTime
 
 let bundleLogger = {
     start: ( filepath ) => {
-        startTime = process.hrtime();
+        startTime = process.hrtime()
         gutil.log('Bundling', gutil.colors.green(filepath))
     },
 

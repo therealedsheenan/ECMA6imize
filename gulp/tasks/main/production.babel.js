@@ -1,4 +1,5 @@
 import gulp from 'gulp'
+import rs from 'run-sequence'
 
 gulp.task('production', ['html', 'styles', 'browserify', 'browserSync', 'watch'] );
 

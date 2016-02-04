@@ -138,6 +138,15 @@ module.exports = {
         dest: `${ MEDIA_DEST }/fonts`,
         watchFiles: [ `${ MEDIA_SRC }/fonts/*.{eot,ttf,otf,cff,afm,lwfn,ffil,fon,pfm,pfb,woff,svg,std,pro,xsf}` ]
     },
+    
+    svgstore: {
+        src: `${ MEDIA_SRC }/images/svg/*.svg`,
+        dest: `${ HTML_SRC }/__construct/addons/`,
+        watchFiles: `${ MEDIA_SRC }/images/svg/`,
+        options: {
+            inlineSvg: true
+        }
+    },
 
     del: {
         dest: DEST_DIR

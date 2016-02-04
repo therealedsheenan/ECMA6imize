@@ -3,7 +3,7 @@ import rs from 'run-sequence'
 
 let runDefault = ( cb ) => {
     rs(
-        'clean',
+        ['clean', 'svgstore'],
         ['copy-imagemin', 'copy-fonts', 'html', 'styles', 'watchify'],
         ['browserSync', 'watch'],
         cb
