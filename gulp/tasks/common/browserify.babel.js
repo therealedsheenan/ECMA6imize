@@ -16,13 +16,15 @@ import babel from 'babelify'
 import browserSync from 'browser-sync'
 import ms from 'merge-stream'
 import _ from 'lodash'
+import uglify from 'gulp-uglify'
+import saveLicense from 'uglify-save-license'
 
-const dev = env !== config.build.prod
+const dev = env
 const dest = gulp.dest
 
 let bundleAll = ( dev ) => {
     let bundleThis = ( bundleConfig ) => {
-        if ( dev ) {
+        if ( dev == config.build.dev ) {
             _.extend(bundleConfig, watchify.args, { debug: true })
         }
         let pkg = browserify( bundleConfig )
@@ -34,21 +36,35 @@ let bundleAll = ( dev ) => {
                 .bundle()
                 .on('error', handleErrors)
                 .pipe(source( bundleConfig.outputName ))
-                .pipe(gulpif(!dev , buffer()))
+                .pipe(gulpif(dev == config.build.prod, buffer()))
+                .pipe(gulpif(dev == config.build.prod, uglify({ preserveComments: saveLicense })))
                 .pipe(dest( bundleConfig.dest ))
-                .pipe(browserSync.reload( config.browserSync.reload ))
+                .pipe(gulpif( dev == config.build.dev ,browserSync.reload( config.browserSync.reload )))
         }
 
-        if ( dev ) {
+        if ( dev == config.build.dev ) {
             pkg = watchify( pkg )
             pkg.on('update', ( e ) => {
                 e.forEach( ( v ) => {
                     changeFileLog(v, 'changed')
                 } )
-                bundle();
+                bundle()
             })
             pkg.on('log', gutil.log)
             bundleLogger.watch( bundleConfig.outputName )
+        }
+
+        if ( bundleConfig.require ) {
+            bundleConfig.forEach( v => {
+                pkg.require( v )
+            })
+        }
+
+        if ( bundleConfig.external ) {
+            bundleConfig.forEach( v => {
+                pkg.external( v )
+            })
+
         }
 
         return bundle()
@@ -59,6 +75,6 @@ let bundleAll = ( dev ) => {
 
 gulp.task('browserify', () => {
     bundleAll( dev )
-} );
+} )
 
-module.exports = bundleAll
+export default bundleAll
