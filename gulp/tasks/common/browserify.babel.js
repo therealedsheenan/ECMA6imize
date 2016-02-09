@@ -22,7 +22,7 @@ import saveLicense from 'uglify-save-license'
 const dev = env
 const dest = gulp.dest
 
-let bundleAll = ( dev ) => {
+let bundleAll = () => {
     let bundleThis = ( bundleConfig ) => {
         if ( dev == config.build.dev ) {
             _.extend(bundleConfig, watchify.args, { debug: true })
@@ -74,7 +74,7 @@ let bundleAll = ( dev ) => {
 }
 
 gulp.task('browserify', () => {
-    bundleAll( dev )
+    bundleAll()
 } )
 
 export default bundleAll

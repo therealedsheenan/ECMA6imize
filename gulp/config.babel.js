@@ -85,10 +85,7 @@ module.exports = {
             `${ HTML_SRC }/**/*.jade`,
             `${ HTML_SRC }/**/*.yml`,
             `${ HTML_SRC }/**/*.json`
-        ],
-        options: {
-            pretty: true
-        }
+        ]
     },
 
     browserify: {
@@ -138,7 +135,7 @@ module.exports = {
         dest: `${ MEDIA_DEST }/fonts`,
         watchFiles: [ `${ MEDIA_SRC }/fonts/*.{eot,ttf,otf,cff,afm,lwfn,ffil,fon,pfm,pfb,woff,svg,std,pro,xsf}` ]
     },
-    
+
     svgstore: {
         src: `${ MEDIA_SRC }/images/svg/*.svg`,
         dest: `${ HTML_SRC }/__construct/addons/`,
