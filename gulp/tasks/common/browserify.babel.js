@@ -64,7 +64,6 @@ let bundleAll = () => {
             bundleConfig.forEach( v => {
                 pkg.external( v )
             })
-
         }
 
         return bundle()
