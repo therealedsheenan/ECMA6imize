@@ -105,7 +105,8 @@ module.exports = {
                 // require: ['jquery'],
                 extensions: ['.js']
             }
-        ]
+        ],
+        require: ['lodash'],
     },
 
     copyImg: {
