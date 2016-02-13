@@ -65,7 +65,6 @@ module.exports = {
         doiuse: {
             browsers: [
                 'ie >= 11'
-                // 'last 2 versions'
             ],
             ignore: ['rem'],
             ignoreFiles: ['']
@@ -95,14 +94,12 @@ module.exports = {
                 entries: [`${ SCRIPTS_SRC }/main.babel.js`],
                 dest: `${ SCRIPTS_DEST }/`,
                 outputName: 'main.js',
-                // require: ['config','libs/modernzr'],
                 extensions: ['.js']
             },
             {
                 entries: [`${ SCRIPTS_SRC }/head.babel.js`],
                 dest: `${ SCRIPTS_DEST }/`,
                 outputName: 'head.js',
-                // require: ['jquery'],
                 extensions: ['.js']
             }
         ],
