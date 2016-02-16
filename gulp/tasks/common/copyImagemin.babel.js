@@ -18,9 +18,7 @@ let copyImagemin = () => {
             progressive: true,
             interlaced: true,
             svgoPlugins: config.copyImg.svgoPlugins,
-            use: [
-                pngquant( config.copyImg.pngquant )
-            ]
+            use: [ pngquant( config.copyImg.pngquant ) ]
         }))
         .pipe(dest( config.copyImg.dest ))
         .pipe(gulpif(!dev, browserSync.reload( config.browserSync.reload )))
