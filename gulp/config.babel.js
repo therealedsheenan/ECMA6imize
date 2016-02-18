@@ -123,9 +123,7 @@ module.exports = {
             quality: '60-80',
             speed: 4
         },
-        watchFiles: [
-            `${ MEDIA_SRC }/images/**/*.{gif,jpeg,jpg,png,svg,webp}`
-        ]
+        watchFiles: [ `${ MEDIA_SRC }/images/**/*.{gif,jpeg,jpg,png,svg,webp}` ]
     },
 
     copyFonts: {
@@ -138,9 +136,7 @@ module.exports = {
         src: `${ MEDIA_SRC }/images/svg/*.svg`,
         dest: `${ HTML_SRC }/__construct/addons/`,
         watchFiles: `${ MEDIA_SRC }/images/svg/`,
-        options: {
-            inlineSvg: true
-        }
+        options: { inlineSvg: true }
     },
 
     del: {
