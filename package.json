@@ -61,6 +61,7 @@
     "imagemin-pngquant": "^4.2.0",
     "lodash": "^4.0.0",
     "merge-stream": "^1.0.0",
+    "modernizr": "^3.3.1",
     "path": "^0.12.7",
     "postcss-cssnext": "^2.4.0",
     "postcss-import": "^7.1.3",
