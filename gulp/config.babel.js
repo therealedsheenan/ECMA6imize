@@ -141,5 +141,9 @@ module.exports = {
 
     del: {
         dest: DEST_DIR
+    },
+
+    modernizr: {
+
     }
 }
