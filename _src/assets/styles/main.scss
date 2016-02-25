@@ -1,7 +1,10 @@
 /*main sass files called here*/
 
 //sample import of css files
-@import "partials/_import1";
+@import "base/_import";
 
 //import tools folder files
 @import "util/_import";
+
+//import components folder files
+@import "components/_import";
