@@ -36,8 +36,8 @@ let bundleAll = () => {
                 .bundle()
                 .on('error', handleErrors)
                 .pipe(source( bundleConfig.outputName ))
-                .pipe(gulpif(dev == config.build.prod, buffer()))
-                .pipe(gulpif(dev == config.build.prod, uglify({ preserveComments: saveLicense })))
+                .pipe(gulpif( dev == config.build.prod, buffer()) )
+                .pipe(gulpif( dev == config.build.prod, uglify({ preserveComments: saveLicense })) )
                 .pipe(dest( bundleConfig.dest ))
                 .pipe(gulpif( dev == config.build.dev ,browserSync.reload( config.browserSync.reload )))
         }
