@@ -1,14 +1,11 @@
-doctype html
-html
-    head
-        meta(charset='utf-8')
-        title
-    body
-        .Message
-            .Message-inner
-                h1 ECMA6imize
-                p This is a site generator
-        
-        script(type='text/javascript', src='assets/scripts/head.js')
-        script(type='text/javascript', src='assets/scripts/main.js')
-        link(rel='stylesheet', type="text/css", href="assets/styles/main.css")
+extends ./__construct/base/_layout.jade
+
+block append vars 
+    - page.title = 'ECMA6imize'
+    - page.lang = 'en'
+
+block main
+    .Message
+        .Message-inner
+            h1 ECMA6imize
+            p This is a site generator

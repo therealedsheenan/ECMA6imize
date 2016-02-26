@@ -1,0 +1,12 @@
+include _vars.jade
+
+doctype html
+
+html(lang="#{ page.lang }")
+    head
+        include _header.jade
+    body
+        main(role="main")
+            block main
+
+        include _footer.jade
