@@ -4,6 +4,8 @@
   "description": "Sheenan Tenepre's task runner using gulp with es6 javascript",
   "main": "index.js",
   "scripts": {
+    "dev": "gulp development",
+    "prod": "gulp production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
