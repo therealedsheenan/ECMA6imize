@@ -78,7 +78,9 @@ module.exports = {
             `!${ HTML_SRC }/**/_*.jade`,
         ],
         dest: HTML_DEST,
-        data: `${ HTML_SRC }/__construct/data/info.json`,
+        data: [
+            `${ HTML_SRC }/__construct/data/info.json`
+        ],
         watchFiles: [
             `${ HTML_SRC }/**/**/*.jade`,
             `${ HTML_SRC }/**/*.jade`,
