@@ -78,9 +78,7 @@ module.exports = {
             `!${ HTML_SRC }/**/_*.jade`,
         ],
         dest: HTML_DEST,
-        data: [
-            `${ HTML_SRC }/__construct/data/info.json`
-        ],
+        data: `${ HTML_SRC }/__construct/data/info.json`,
         watchFiles: [
             `${ HTML_SRC }/**/**/*.jade`,
             `${ HTML_SRC }/**/*.jade`,
@@ -90,7 +88,6 @@ module.exports = {
     },
 
     browserify: {
-        transform: ['babelify'],
         bundleConfigs: [
             {
                 entries: [`${ SCRIPTS_SRC }/main.babel.js`],
@@ -104,8 +101,7 @@ module.exports = {
                 outputName: 'head.js',
                 extensions: ['.js']
             }
-        ],
-        require: ['lodash'],
+        ]
     },
 
     copyImg: {
@@ -146,6 +142,8 @@ module.exports = {
     },
 
     modernizr: {
-
+        rules: `${ SCRIPTS_SRC }/_data/modernizr.json`,
+        watch: `${ SCRIPTS_SRC }/_data/modernizr.json`,
+        dest: `${ SCRIPTS_SRC }/vendor/modernizr.js`
     }
 }

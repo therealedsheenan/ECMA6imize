@@ -19,6 +19,7 @@ import syntax_scss from 'postcss-scss'
 import gulpif from 'gulp-if'
 import browserSync from 'browser-sync'
 import plumber from 'gulp-plumber'
+import notify from 'gulp-notify'
 
 const dest = gulp.dest
 const dev = env
@@ -45,10 +46,6 @@ const cssTools = [
     cssnext,
     nested,
     stylelint( stylelintConfig ),
-    reporter({
-      clearMessages: true,
-      throwError: true
-    }),
     autoprefixer( config.styles.autoprefixer ),
     mqpacker
 ]
@@ -68,8 +65,7 @@ let generateStyles = () => {
     }
 
     return sass(styleFile, options)
-        .pipe(plumber())
-        .on('error', handleErrors)
+        .pipe(plumber( { handleErrors: handleErrors } ))
         .pipe(postcss( cssTools ), { syntax: syntax_scss })
         .pipe(gulpif(dev == config.build.prod, postcss( min )))
         .pipe(gulpif(dev == config.build.dev, sourcemaps.write()))

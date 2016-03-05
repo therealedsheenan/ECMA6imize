@@ -12,12 +12,13 @@ import source from 'vinyl-source-stream'
 import buffer from 'vinyl-buffer'
 import browserify from 'browserify'
 import watchify from 'watchify'
-import babel from 'babelify'
+import babelify from 'babelify'
 import browserSync from 'browser-sync'
 import ms from 'merge-stream'
 import _ from 'lodash'
 import uglify from 'gulp-uglify'
 import saveLicense from 'uglify-save-license'
+import notify from 'gulp-notify'
 
 const dev = env
 const dest = gulp.dest
@@ -28,13 +29,17 @@ let bundleAll = () => {
             _.extend(bundleConfig, watchify.args, { debug: true })
         }
         let pkg = browserify( bundleConfig )
-        pkg.transform( config.browserify.transform )
+        // pkg.transform( config.browserify.transform )
+        pkg.transform( babelify, { presets: ['es2015', 'react'] } )
 
         let bundle = () => {
             bundleLogger.start( bundleConfig.outputName )
             return pkg
                 .bundle()
-                .on('error', handleErrors)
+                .on('error', notify.onError({
+                    message: 'Error: <%= error.message %>',
+                    title: 'Error on load'
+                }))
                 .pipe(source( bundleConfig.outputName ))
                 .pipe(gulpif( dev == config.build.prod, buffer()) )
                 .pipe(gulpif( dev == config.build.prod, uglify({ preserveComments: saveLicense })) )
