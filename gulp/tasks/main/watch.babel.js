@@ -3,16 +3,20 @@ import changeFileLog from '../../lib/changeFileLog.babel'
 
 import gulp from 'gulp';
 
-let watchData = ['styles' ,'html' ,'copyImg' ,'copyFonts'];
-
 gulp.task('watch', () => {
-    let watchFiles = [];
-    watchData.forEach( ( k,v ) => {
-        let tasks = [watchData[v]];
-        let files = config[k].watchFiles || config[k].src;
-        watchFiles = watchFiles.concat( files );
-        gulp.watch (files, tasks);
-    });
+    let watchFiles = [
+        config.styles.watchFiles,
+        config.html.watchFiles,
+        config.copyImg.watchFiles,
+        config.copyFonts.watchFiles,
+        config.svgstore.watchFiles
+    ]
+
+    gulp.watch(config.styles.watchFiles, ['styles'])
+    gulp.watch(config.html.watchFiles, ['html'])
+    gulp.watch(config.svgstore.watchFiles, ['svgstore'])
+    gulp.watch(config.copyImg.watchFiles, ['copy-imagemin'])
+    gulp.watch(config.copyFonts.watchFiles, ['copy-fonts'])
 
     gulp.watch( watchFiles ).on("change", ( evt ) => {
         changeFileLog(evt.path, evt.type)
