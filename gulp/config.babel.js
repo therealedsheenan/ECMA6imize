@@ -106,11 +106,16 @@ module.exports = {
 
     copyImg: {
         src: [
+            `${ MEDIA_SRC }/images/**/*`,
             `${ MEDIA_SRC }/images/**/*.{gif,jpeg,jpg,png,svg,webp}`,
-            `${ MEDIA_SRC }/images/icons/*.{ico,png,svg}`
+            `${ MEDIA_SRC }/images/icons/*.{ico,png}`
         ],
         dest: `${ MEDIA_DEST }/images`,
-        watch: [ `${ MEDIA_SRC }/images/*.{gif,jpeg,jpg,png,svg,webp}` ],
+        watch: [
+            `${ MEDIA_SRC }/images/**/*`,
+            `${ MEDIA_SRC }/images/**/*.{gif,jpeg,jpg,png,svg,webp}`,
+            `${ MEDIA_SRC }/images/icons/*.{ico,png}`
+        ],
         svgoPlugins: [
             { removeViewBox: false },
             { removeUselessStrokeAndFill: false },
@@ -121,7 +126,7 @@ module.exports = {
             quality: '60-80',
             speed: 4
         },
-        watchFiles: [ `${ MEDIA_SRC }/images/**/*.{gif,jpeg,jpg,png,svg,webp}` ]
+        watchFiles: [ `${ MEDIA_SRC }/**/*.{gif,jpeg,jpg,png,svg,webp}` ]
     },
 
     copyFonts: {
