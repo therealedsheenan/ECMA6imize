@@ -9,12 +9,14 @@ gulp.task('watch', () => {
         config.html.watchFiles,
         config.copyImg.watchFiles,
         config.copyFonts.watchFiles,
-        config.svgstore.watchFiles
+        config.svgstore.watchFiles,
+        config.modernizr.watchFiles
     ]
 
     gulp.watch(config.styles.watchFiles, ['styles'])
     gulp.watch(config.html.watchFiles, ['html'])
     gulp.watch(config.svgstore.watchFiles, ['svgstore'])
+    gulp.watch(config.modernizr.watchFiles, ['modernizr'])
     gulp.watch(config.copyImg.watchFiles, ['copy-imagemin'])
     gulp.watch(config.copyFonts.watchFiles, ['copy-fonts'])
 

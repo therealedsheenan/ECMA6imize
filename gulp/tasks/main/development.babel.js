@@ -10,9 +10,9 @@ let runDefault = ( cb ) => {
     console.log('');
     console.log('By: Sheenan Tenepre');
     console.log('');
-    
+
     rs(
-        ['clean', 'svgstore'],
+        ['clean', 'svgstore', 'modernizr'],
         ['copy-imagemin', 'copy-fonts', 'html', 'styles', 'watchify'],
         ['browserSync', 'watch'],
         cb

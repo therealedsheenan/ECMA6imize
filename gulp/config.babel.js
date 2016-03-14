@@ -78,12 +78,13 @@ module.exports = {
             `!${ HTML_SRC }/**/_*.jade`,
         ],
         dest: HTML_DEST,
-        data: `${ HTML_SRC }/__construct/data/info.json`,
+        data: `${ SRC_DIR }/assets/_data/jadeData.json`,
         watchFiles: [
             `${ HTML_SRC }/**/**/*.jade`,
             `${ HTML_SRC }/**/*.jade`,
             `${ HTML_SRC }/**/*.yml`,
-            `${ HTML_SRC }/**/*.json`
+            `${ HTML_SRC }/**/*.json`,
+            `${ SRC_DIR }/assets/_data/jadeData.json`
         ]
     },
 
@@ -147,8 +148,8 @@ module.exports = {
     },
 
     modernizr: {
-        rules: `${ SCRIPTS_SRC }/_data/modernizr.json`,
-        watch: `${ SCRIPTS_SRC }/_data/modernizr.json`,
+        config: `${ SRC_DIR }/assets/_data/modernizrData.js`,
+        watchFiles: `${ SRC_DIR }/assets/_data/modernizrData.js`,
         dest: `${ SCRIPTS_SRC }/vendor/modernizr.js`
     }
 }
