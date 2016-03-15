@@ -4,6 +4,8 @@
   "description": "Sheenan Tenepre's task runner using gulp with es6 javascript",
   "main": "index.js",
   "scripts": {
+    "start": "gulp development",
+    "build": "gulp production",
     "dev": "gulp development",
     "prod": "gulp production",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,7 +23,9 @@
     "babel modular",
     "gulp babel",
     "babel gulpfile",
-    "gulp.babel.js"
+    "gulp.babel.js",
+    "es6 task runner",
+    "es6 gulp task runner"
   ],
   "author": "Sheenan Tenepre",
   "license": "ISC",
