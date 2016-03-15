@@ -14,6 +14,15 @@ npm install babel -g
 npm install
 ```
 
+##Major dependencies
+ - Browserify
+ - SASS
+ - JADE
+ - Modernizr
+ - Babel
+ - PostCSS
+ - React
+
 ####Important Notes:
 - Make sure that you have gulp v3.9 on both CLI and local.
 - If you get errors from installing gulp or babel, try adding `sudo` before the command.
