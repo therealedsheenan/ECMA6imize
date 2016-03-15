@@ -1,4 +1,4 @@
-![logo ECMA6imize](https://therealedsheenan.com/therealedsheenan/ECMA6imize/master/ecma6.png)
+![logo ECMA6imize](https://github.com/therealedsheenan/ECMA6imize/blob/master/ecma6.png)
 # ECMA6imize
 ECMA6imize is a custom gulp task runner that supports ES6 features.
 
