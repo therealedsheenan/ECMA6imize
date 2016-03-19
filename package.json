@@ -15,7 +15,7 @@
     "url": "git+https://github.com/therealedsheenan/ECMA6imize.git"
   },
   "keywords": [
-    "es6",1
+    "es6",
     "gulp + babel",
     "edify",
     "gulp + babel in a modular way",
