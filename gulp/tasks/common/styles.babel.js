@@ -5,7 +5,6 @@ import env from '../../lib/env.babel'
 import gulp from 'gulp'
 import sourcemaps from 'gulp-sourcemaps'
 import postcss from 'gulp-postcss'
-import autoprefixer from 'autoprefixer'
 import cssnext from 'postcss-cssnext'
 import nested from 'postcss-nested'
 import atImport from 'postcss-import'
@@ -42,10 +41,9 @@ const stylelintConfig = {
 
 const cssTools = [
     atImport,
-    cssnext,
+    cssnext( config.styles.autoprefixer ),
     nested,
     stylelint( stylelintConfig ),
-    autoprefixer( config.styles.autoprefixer ),
     mqpacker
 ]
 const min = [ minify ]
