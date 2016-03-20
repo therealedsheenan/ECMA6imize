@@ -57,18 +57,7 @@ module.exports = {
             `${ CSS_SRC }/**/*.scss`,
             `${ CSS_SRC }/**/**/*.scss`
         ],
-        autoprefixer: 'last 2 versions',
-        reporter: {
-            clearMessages: true,
-            throwError: true
-        },
-        doiuse: {
-            browsers: [
-                'ie >= 11'
-            ],
-            ignore: ['rem'],
-            ignoreFiles: ['']
-        }
+        autoprefixer: 'last 2 versions'
     },
 
     html: {
