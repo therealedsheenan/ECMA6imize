@@ -34,7 +34,6 @@
   },
   "homepage": "https://github.com/therealedsheenan/ECMA6imize#readme",
   "devDependencies": {
-    "autoprefixer": "^6.2.3",
     "babel-cli": "^6.6.5",
     "babel-core": "^6.4.0",
     "babel-preset-es2015": "^6.6.0",
