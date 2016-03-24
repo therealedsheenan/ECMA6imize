@@ -11,3 +11,52 @@ $mq-m-only: "only screen and (min-width: #{ $small }px) and (max-width: #{ $medi
 $mq-ls: "only screen and (min-width: #{ $small }px) and (max-width: #{ $medium - 1 }px) and (orientation: landscape)";
 
 $mq-hidpi: "print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi)";
+
+//media queries
+@mixin mq-s {
+    @media ( #{ $mq-s } ) {
+        @content;
+    }
+}
+
+@mixin mq-m {
+    @media ( #{ $mq-m } ) {
+        @content;
+    }
+}
+
+@mixin mq-m-only {
+    @media #{ $mq-m-only } {
+        @content;
+    }
+}
+
+@mixin mq-l {
+    @media ( #{ $mq-l } ) {
+        @content;
+    }
+}
+
+@mixin mq-hd {
+    @media ( #{ $mq-hidpi } ) {
+        @content;
+    }
+}
+
+@mixin mq-ls {
+    @media #{ $mq-ls } {
+        @content;
+    }
+}
+
+@mixin mq-lt-m() {
+    @media (max-width: #{$medium - 1px}) {
+        @content;
+    }
+}
+
+@mixin mq-land {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
