@@ -56,7 +56,7 @@ class MessageInner extends React.Component {
                 onMouseOver={ this.handleMouseOver.bind( this ) }
                 onMouseOut={ this.handleMouseOut.bind( this ) } >
                 <h1>ECMA6imize</h1>
-                <p>This is a site generator</p>
+                <p className="test">This is a site generator</p>
             </div>
         )
     }
