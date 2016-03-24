@@ -13,12 +13,15 @@ import stylelint from 'stylelint'
 import mqpacker from 'css-mqpacker'
 import minify from 'cssnano'
 import rename from 'gulp-rename'
-import sass from 'gulp-ruby-sass'
 import syntax_scss from 'postcss-scss'
 import gulpif from 'gulp-if'
 import browserSync from 'browser-sync'
 import plumber from 'gulp-plumber'
 import notify from 'gulp-notify'
+import rucksack from 'gulp-rucksack'
+
+import sass from 'gulp-sass'
+
 
 const dest = gulp.dest
 const dev = env
@@ -63,8 +66,10 @@ let generateStyles = () => {
         path.basename = config.styles.destFileName
     }
 
-    return sass(styleFile, options)
+    return gulp.src(styleFile, options)
         .pipe(plumber( { handleErrors: handleErrors } ))
+        .pipe(sass())
+        .pipe(rucksack())
         .pipe(postcss( cssTools ), { syntax: syntax_scss })
         .pipe(gulpif(dev == config.build.prod, postcss( min )))
         .pipe(gulpif(dev == config.build.dev, sourcemaps.write()))
