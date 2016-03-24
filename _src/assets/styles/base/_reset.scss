@@ -4,6 +4,16 @@ body {
     height: 100%;
 }
 
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
 body {
     position: relative;
 }
@@ -11,4 +21,23 @@ body {
 main {
     width: 100%;
     height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+
+h1 {
+    font-size: responsive 1rem 2em;
+    line-height: 1rem;
+}
+
+p {
+    font-size: responsive 8px 16px;
 }

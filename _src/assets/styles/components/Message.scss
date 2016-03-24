@@ -8,16 +8,17 @@
     overflow: hidden;
 
     &-inner {
-        @include absolute(0,0,0,0);
-        margin: auto;
+        position: absolute 0;
+        left: 50%;
+        top: 50%;
         text-align: center;
-        width: 200px;
-        height: 120px;
-        padding: 10px;
+        width: 30%;
+        padding: 20px;
         background-color: white;
         border-radius: 5px;
-        transform: scale(1);
+        transform: scale(1) translate(-50%, -50%);
         transition: 350ms transform ease-in-out;
+        display: table;
 
         &.__is-hovered {
             transform: scale(1.10);

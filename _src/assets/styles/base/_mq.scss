@@ -1,0 +1,13 @@
+//Media Query sizes
+$small: 320;
+$medium: 768;
+$large: 1024;
+
+//Media Query texts
+$mq-s: "min-width: #{ $small }px";
+$mq-m: "min-width: #{ $medium }px";
+$mq-l: "min-width: #{ $large }px";
+$mq-m-only: "only screen and (min-width: #{ $small }px) and (max-width: #{ $medium - 1 }px)";
+$mq-ls: "only screen and (min-width: #{ $small }px) and (max-width: #{ $medium - 1 }px) and (orientation: landscape)";
+
+$mq-hidpi: "print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi)";
