@@ -91,13 +91,21 @@ module.exports = {
     browserify: {
         bundleConfigs: [
             {
+                paths: [`${ SCRIPTS_SRC }`],
                 entries: [`${ SCRIPTS_SRC }/main.babel.js`],
                 dest: `${ SCRIPTS_DEST }/`,
                 outputName: 'main.js',
-                extensions: ['.js']
+                extensions: ['.js'],
+                transform: [
+                    [ 'babelify', { presets: ['es2015', 'react'] } ]
+                ]
             },
             {
-                entries: [`${ SCRIPTS_SRC }/head.babel.js`],
+                paths: [`${ SCRIPTS_SRC }`],
+                entries: [
+                    `${ SCRIPTS_SRC }/vendor/modernizr.js`,
+                    'node_modules/gsap/src/minified/TweenLite.min.js'
+                ],
                 dest: `${ SCRIPTS_DEST }/`,
                 outputName: 'head.js',
                 extensions: ['.js']
