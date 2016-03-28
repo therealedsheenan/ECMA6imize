@@ -1,17 +1,14 @@
 import config from '../../config.babel'
 import handleErrors from '../../lib/handleErrors.babel'
 import env from '../../lib/env.babel'
+import stylelintConfig from '../../lib/styleLintConfig.babel'
 
 import gulp from 'gulp'
 import sourcemaps from 'gulp-sourcemaps'
 import postcss from 'gulp-postcss'
-import autoprefixer from 'autoprefixer'
-import cssnext from 'postcss-cssnext'
-import nested from 'postcss-nested'
-import atImport from 'postcss-import'
+import minify from 'cssnano'
 import stylelint from 'stylelint'
 import mqpacker from 'css-mqpacker'
-import minify from 'cssnano'
 import rename from 'gulp-rename'
 import syntax_scss from 'postcss-scss'
 import gulpif from 'gulp-if'
@@ -22,53 +19,33 @@ import rucksack from 'gulp-rucksack'
 
 import sass from 'gulp-sass'
 
-
 const dest = gulp.dest
 const dev = env
-const stylelintConfig = {
-    "rules": {
-    "block-no-empty": true,
-    "color-no-invalid-hex": true,
-    "declaration-colon-space-after": "always",
-    "declaration-colon-space-before": "never",
-    "function-comma-space-after": "always",
-    "media-feature-colon-space-after": "always",
-    "media-feature-colon-space-before": "never",
-    "max-empty-lines": 5,
-    "number-no-trailing-zeros": true,
-    "declaration-block-no-single-line": true,
-    "rule-trailing-semicolon": "always",
-    "selector-list-comma-space-before": "never",
-    "selector-list-comma-newline-after": "always"
-    }
-}
 
 const cssTools = [
-    atImport,
-    cssnext,
-    nested,
     stylelint( stylelintConfig ),
-    autoprefixer( config.styles.autoprefixer ),
     mqpacker
 ]
+
 const min = [ minify ]
 
 let generateStyles = () => {
     let styleFile = config.styles.src.development
     let options = {
         sourcemap: true,
-        style: 'expanded',
+        outputStyle: 'expanded',
         unixNewlines: true,
-        defaultEncoding: 'UTF-8'
+        defaultEncoding: 'UTF-8',
+        includePaths: require('node-bourbon').includePaths
     }
 
     let renameFile = ( path ) => {
         path.basename = config.styles.destFileName
     }
 
-    return gulp.src(styleFile, options)
-        .pipe(plumber( { handleErrors: handleErrors } ))
-        .pipe(sass())
+    return gulp.src( styleFile )
+        .pipe(plumber({ handleErrors: handleErrors }))
+        .pipe(sass( options ).on('error', sass.logError))
         .pipe(rucksack())
         .pipe(postcss( cssTools ), { syntax: syntax_scss })
         .pipe(gulpif(dev == config.build.prod, postcss( min )))
