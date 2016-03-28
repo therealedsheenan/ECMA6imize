@@ -27,6 +27,7 @@ npm install
 - Make sure that you have gulp v3.9 on both CLI and local.
 - If you get errors from installing gulp or babel, try adding `sudo` before the command.
 - Running `gulp` only won't load the default task. Read the instructions below for further details.
+- Make sure babel-core versions are compatible
 
 ###Run Gulp Development mode
 `gulp development` or `npm run dev` or `npm start`
