@@ -33,7 +33,7 @@ class MessageInner extends React.Component {
         super ( props )
 
         this.state = {
-            isHoverd: false
+            isHovered: false
         }
     }
 
