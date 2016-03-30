@@ -2,5 +2,14 @@
 
 $is-debug: true;
 
-@import "bourbon";
+/*@import "bourbon";
+@import "susy";
+
+$susy: (
+    columns: 12,
+    container: 600px,
+    gutters: 1/4,
+    global-box-sizing: border-box,
+    debug: (image: hide)
+);*/
 @import "main";
