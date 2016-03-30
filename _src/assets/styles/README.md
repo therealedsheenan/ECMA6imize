@@ -8,5 +8,6 @@ the default CSS preprocessors are:
 - postcss
 - rucksack
 - bourbon
+- susy
 
 You can always add features from `styles.babel.js` babel. Make sure you also edit the config from `config.babel.js`
