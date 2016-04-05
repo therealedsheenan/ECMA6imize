@@ -36,7 +36,10 @@ let generateStyles = () => {
         outputStyle: 'expanded',
         unixNewlines: true,
         defaultEncoding: 'UTF-8',
-        includePaths: require('node-bourbon').includePaths
+        includePaths: [
+            require('node-bourbon').includePaths,
+            'node_modules/susy/sass'
+        ]
     }
 
     let renameFile = ( path ) => {
