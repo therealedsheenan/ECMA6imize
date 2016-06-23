@@ -5,5 +5,97 @@ block append vars
     - page.lang = 'en'
 
 block main
-    .Message
-    
+    header.Header
+        
+        div.Header-top
+            div.content
+                div.Header-top__contact
+                    p.text Call us Now!
+                    p.number 385.154.11.28.35
+                
+                div.Header-top__log
+                    p.login Login
+                    p.signup SignUp
+        
+        div.Header-nav
+            div.content
+                a.Header-nav__logo(href="#")
+                    h1.logo
+                        span.logo-your Your
+                        span.logo-logo logo
+                
+                ul.Header-nav__menu
+                    li
+                        a(href="#") Title 1
+                    li
+                        a(href="#") Title 2
+                        //- ul
+                        //-     li
+                        //-         a(href="#")
+                        //-     li
+                        //-         a(href="#")
+                        //-     li
+                        //-         a(href="#")
+                        //-         ul
+                        //-             li
+                        //-                 a(href="#")
+                        //-             li
+                        //-                 a(href="#")
+                        //-             li
+                        //-                 a(href="#")
+                    li
+                        a(href="#") Title 3
+                    li
+                        a(href="#") Title 4
+                    li
+                        a(href="#") Title 5
+                    li
+                        a(href="#") Title 6
+                    li
+                        a(href="#") Title 7
+
+    section.Body
+        div.content
+            div.Body-address
+                p.
+                    Home / Who we are / #[span Contact]
+            
+            div.Body-info
+                h2 Contact
+                p.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam posuere ipsum nec velit mattis elementum. Cum sociis natoque#[br.break]
+                    penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas eu placerat metus, eget placerat libero. 
+            div.Body-main
+                div.Body-form
+                    h3 Contact Us
+                    div.Body-form__input
+                        div.col-1
+                            input(type="text", placeholder="Name *")
+                        div.col-2
+                            input(type="text", placeholder="Phone *")
+                            input(type="text", placeholder="Email *")
+                        div.col-1
+                            textarea(placeholder="Message *")
+                    a.submit(href="#") Submit
+                    
+                div.Body-details
+                    div.Body-details__location
+                        h3 Reach Us
+                        p.
+                            Coalition Skills Test
+                            535 La Plata Street
+                            4200 Argentina
+                        p.
+                            Phone: 385.154.11.28.38
+                            Fax: 385.154.35.66.78
+                    
+                    div.Body-details__social
+                        a.facebook(href="#")
+                            img(src="")
+                        a.twitter(href="#")
+                            img(src="")
+                        a.linkedin(href="#")
+                            img(src="")
+                        a.pinterest(href="#")
+                            img(src="")
+                    

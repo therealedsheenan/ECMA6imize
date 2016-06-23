@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+@import "./strip-unit";
+
+@function line-height($line-height, $font-size) {
+    @return strip-unit($line-height / $font-size);
+}
+
+// @alias line-height
+@function lh($line-height, $font-size) {
+    @return line-height($line-height, $font-size);
+}

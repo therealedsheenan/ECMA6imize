@@ -1,0 +1,102 @@
+.Body {
+    &-address {
+        margin-top: 48px;
+        margin-bottom: 48px;
+        p {
+            @include v-fit(14px, 24.65px, 0, 0);
+            font-family: 'Ubuntu-regular';
+            color: #929292;
+        }
+        span {
+            font-family: 'Ubuntu-bold';
+            font-weight: bold;
+            color: #222222;
+        }
+    }
+
+    &-info {
+        h2 {
+            font-family: 'Open Sans', sans-serif;
+            color: #ff6200;
+            @include v-fit(26.96px, 19.54px, 0, 15px);
+        }
+
+        p {
+            font-family: 'Ubuntu-light';
+            color: #878787;
+            @include v-fit(14px, 19px, 0, 0);
+        }
+    }
+
+    &-main {
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &-form {
+        padding-right: 10px;
+        width: 50%;
+
+        h3 {
+            color: #ff6200;
+            font-weight: lighter;
+            text-transform: uppercase;
+            letter-spacing: 0.075em;
+            font-family: 'Open Sans', sans-serif;
+            @include v-fit(23px, 24.65px, 0, 12px);
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: -15px;
+                left: 0;
+                height: 5px;
+                width: 100%;
+                background: #525252;
+            }
+        }
+
+        &__input {
+            margin-top: 25px;
+            margin-bottom: 22px;
+        }
+
+        .col-1 {
+            input,
+            textarea {
+                width: 100%;
+            }
+        }
+
+        .col-2 {
+            margin: {
+                top: 10px;
+                bottom: 10px;
+            }
+            display: flex;
+            input {
+                width: 50%;
+                &:first-child {
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .submit {
+            text-transform: uppercase;
+            text-align: center;
+            display: block;
+            width: 98px;
+            color: white;
+            text-decoration: none;
+            background-color: #ff6200;
+            @include v-fit(13.04px, 38px, 0, 0);
+            margin: 0;
+        }
+    }
+
+    &-details {
+        width: 50%;
+    }
+}

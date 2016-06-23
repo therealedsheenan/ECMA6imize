@@ -1,0 +1,87 @@
+.Header {
+
+    &-top {
+        height: 34px;
+        background-color: #ff6200;
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .number,
+        .signup {
+            color: white;
+        }
+
+        .text,
+        .login {
+            color: #be3600;
+            letter-spacing: 0.08;
+        }
+
+        .text,
+        .login {
+            margin-right: 10px;
+        }
+
+
+        p {
+            margin: 0;
+            display: inline;
+            font-family: 'bebasregular';
+        }
+
+        &__contact {
+            p {
+                @include v-fit(14.77px, 34px, 0, 0);
+            }
+        }
+
+        &__log {
+            p {
+                @include v-fit(14.62px, 34px, 0, 0);
+            }
+        }
+    }
+
+    &-nav {
+        display: block;
+        overflow: hidden;
+        background-color: #f9f9f9;
+        .content {
+            display: flex;
+            justify-content: space-between;
+        }
+        &__logo {
+            text-decoration: none;
+
+            .logo {
+                text-transform: uppercase;
+                font-family: 'bebasregular';
+                @include v-fit(41.13px, 110px, 0, 0);
+                margin: 0;
+
+                &-your {
+                    color: #313131;
+                }
+                &-logo {
+                    color: #ff6200;
+                }
+            }
+        }
+
+        &__menu {
+            width: 42.70833333%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            li {
+                    list-style-type: none;
+            }
+            a {
+                text-decoration: none;
+                color: #000000;
+            }
+        }
+    }
+}

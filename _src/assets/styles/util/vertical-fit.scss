@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+@import "./rem";
+@import "./line-height";
+
+@mixin vertical-fit($font-size, $line-height, $margin-top, $margin-bottom, $output-margin-only: false) {
+    $line-height-gap: ($line-height - $font-size) / 2;
+
+    @if type-of($margin-top) == "number" {
+        margin-top: rem($margin-top - $line-height-gap);
+    }
+
+    @if type-of($margin-bottom) == "number" {
+        margin-bottom: rem($margin-bottom - $line-height-gap);
+    }
+
+    @if not $output-margin-only {
+        font-size: rem($font-size);
+        line-height: line-height($line-height, $font-size);
+    }
+}
+
+// @alias vertcial-fit
+@mixin v-fit($font-size, $line-height, $margin-top, $margin-bottom, $output-margin-only: false) {
+    @include vertical-fit($font-size, $line-height, $margin-top, $margin-bottom, $output-margin-only);
+}
